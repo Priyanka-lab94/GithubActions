@@ -23,6 +23,8 @@ jobs:
       # Step 3: Install dependencies
       - name: Install Dependencies
         run: npm install
+        run: npm run dev
+
 
       # Step 4: Archive and upload the application
       - name: Archive Application
