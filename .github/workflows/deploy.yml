@@ -28,7 +28,7 @@ jobs:
 
       # Step 4: Archive and upload the application
       - name: Archive Application
-        run: zip -r app.zip .
+        run: sudo apt update | sudo apt install -y unzip | zip -r app.zip .
 
       # Step 5: Deploy to EC2
       - name: Deploy to EC2
