@@ -1,0 +1,19 @@
+{
+  "name": "book-shop-ui",
+  "version": "1.0.0",
+  "description": "A simple Book Shop UI built with Node.js and Express.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": ["book", "shop", "ui", "nodejs", "express"],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
