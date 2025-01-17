@@ -23,7 +23,7 @@ jobs:
       # Step 3: Install dependencies
       - name: Install Dependencies
         run: npm install
-             npm run dev
+             
 
 
       # Step 4: Archive and upload the application
@@ -53,4 +53,5 @@ jobs:
             unzip -o /home/ubuntu/app.zip -d /home/ubuntu/app
             cd /home/ubuntu/app
             npm install
+            npm run dev
             pm2 restart app.js || pm2 start app.js
