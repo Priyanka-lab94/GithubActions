@@ -52,6 +52,7 @@ jobs:
           script: |
             sudo apt update
             sudo apt install -y unzip
+            mkdir -p /home/ubuntu/app
             unzip -o /home/ubuntu/app.zip -d /home/ubuntu/app
             cd /home/ubuntu/app
             npm install
