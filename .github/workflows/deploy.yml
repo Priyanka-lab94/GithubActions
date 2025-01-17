@@ -50,6 +50,8 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           port: 22
           script: |
+            sudo apt update
+            sudo apt install -y unzip
             unzip -o /home/ubuntu/app.zip -d /home/ubuntu/app
             cd /home/ubuntu/app
             npm install
