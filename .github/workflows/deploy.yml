@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout code
+      # Step 1: Checkout Code
       - name: Checkout Code
         uses: actions/checkout@v3
 
@@ -20,15 +20,13 @@ jobs:
         with:
           node-version: "18"
 
-      # Step 3: Install dependencies
+      # Step 3: Install Dependencies Locally
       - name: Install Dependencies
         run: npm install
-             
 
-
-      # Step 4: Archive and upload the application
+      # Step 4: Archive Application
       - name: Archive Application
-        run: sudo apt update | sudo apt install -y unzip | zip -r app.zip .
+        run: zip -r app.zip . -x "*.git*"
 
       # Step 5: Deploy to EC2
       - name: Deploy to EC2
@@ -41,7 +39,7 @@ jobs:
           source: "app.zip"
           target: "/home/ubuntu/app.zip"
 
-      # Step 6: SSH into EC2 and restart application
+      # Step 6: SSH into EC2 and Restart Application
       - name: Restart Application
         uses: appleboy/ssh-action@v0.1.8
         with:
@@ -56,5 +54,4 @@ jobs:
             unzip -o /home/ubuntu/app.zip -d /home/ubuntu/app
             cd /home/ubuntu/app
             npm install
-            npm run dev
             pm2 restart app.js || pm2 start app.js
